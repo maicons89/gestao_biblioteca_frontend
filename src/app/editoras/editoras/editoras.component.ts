@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
@@ -14,11 +15,13 @@ import { EditorasService } from '../services/editoras.service';
 export class EditorasComponent implements OnInit {
 
   editoras$: Observable<Editora[]>;
-  displayedColumns = ['id', 'nome'];
+  displayedColumns = ['id', 'nome', 'acoes'];
 
   constructor(
     private editorasService: EditorasService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute,
     ) {
     this.editoras$ = this.editorasService.listarTodos()
     .pipe(
@@ -37,6 +40,10 @@ export class EditorasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onAdicionar() {
+    this.router.navigate(['novo'], {relativeTo: this.route});
   }
 
 }

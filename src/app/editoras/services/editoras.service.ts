@@ -16,7 +16,7 @@ export class EditorasService {
     return this.httpClient.get<Editora[]>(this.API)
     .pipe(
       first(),
-      delay(5000),
+      delay(1000),
       tap(editoras => console.log(editoras))
     );
 
