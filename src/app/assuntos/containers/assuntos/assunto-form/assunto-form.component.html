@@ -3,10 +3,16 @@
   <mat-card-content>
     <form [formGroup]="form" class="min-width">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Nome" formControlName="nome" />
+        <input matInput placeholder="Nome" formControlName="nome" required />
+        <mat-error *ngIf="form.invalid"
+          >Campo nome não pode ser vazio.</mat-error
+        >
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="CDD" formControlName="cdd" />
+        <input matInput placeholder="CDD" formControlName="cdd" required />
+        <mat-error *ngIf="form.invalid"
+          >Campo cdd não pode ser vazio.</mat-error
+        >
       </mat-form-field>
     </form>
   </mat-card-content>

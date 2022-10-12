@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder } from '@angular/forms';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,7 +16,7 @@ export class EditoraFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     id: [''],
-    nome: [''],
+    nome: ['', Validators.required],
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,

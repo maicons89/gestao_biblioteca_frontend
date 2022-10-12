@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder } from '@angular/forms';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
@@ -16,8 +16,8 @@ export class AssuntoFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     id: [''],
-    nome: [''],
-    cdd: [''],
+    nome: ['', Validators.required],
+    cdd: ['', Validators.required],
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,

@@ -3,10 +3,21 @@
   <mat-card-content>
     <form [formGroup]="form" class="min-width">
       <mat-form-field class="full-width">
-        <input matInput placeholder="Idioma" formControlName="idioma" />
+        <input
+          matInput
+          placeholder="Idioma"
+          formControlName="idioma"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo idioma não pode ser vazio.</mat-error
+        >
       </mat-form-field>
       <mat-form-field class="full-width">
-        <input matInput placeholder="Sigla" formControlName="sigla" />
+        <input matInput placeholder="Sigla" formControlName="sigla" required />
+        <mat-error *ngIf="form.invalid"
+          >Campo sigla não pode ser vazio.</mat-error
+        >
       </mat-form-field>
     </form>
   </mat-card-content>
