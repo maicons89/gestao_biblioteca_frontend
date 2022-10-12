@@ -1,13 +1,13 @@
 <mat-card>
-  <mat-toolbar>Editoras</mat-toolbar>
+  <mat-toolbar>Idiomas</mat-toolbar>
 
   <div class="column-flex mat-elevation-z8">
-    <app-editoras-list
-      *ngIf="editoras$ | async as editoras; else loading"
+    <app-idiomas-list
+      *ngIf="idiomas$ | async as idiomas; else loading"
       (adicionar)="onAdicionar()"
       (editar)="onEditar($event)"
       (deletar)="onDeletar($event)"
-    ></app-editoras-list>
+    ></app-idiomas-list>
 
     <ng-template #loading>
       <div class="loading-spinner">

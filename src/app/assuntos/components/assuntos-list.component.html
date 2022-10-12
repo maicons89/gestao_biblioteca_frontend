@@ -1,4 +1,14 @@
-<mat-table mat-table [dataSource]="assuntos">
+<div class="example-header">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="doFilter($event)"
+      placeholder="Digite id, nome ou cdd"
+    />
+  </mat-form-field>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
   <!-- Id -->
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>

@@ -1,31 +1,31 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { Editora } from '../../model/editora';
-import { EditorasService } from './../../services/editoras.service';
+import { Idioma } from '../model/idioma';
+import { IdiomasService } from '../services/idiomas.service';
 
 @Component({
-  selector: 'app-editoras-list',
-  templateUrl: './editoras-list.component.html',
-  styleUrls: ['./editoras-list.component.css']
+  selector: 'app-idiomas-list',
+  templateUrl: './idiomas-list.component.html',
+  styleUrls: ['./idiomas-list.component.css']
 })
-export class EditorasListComponent implements OnInit {
+export class IdiomasListComponent implements OnInit {
 
   @Output() adicionar = new EventEmitter(false);
   @Output() editar = new EventEmitter(false);
   @Output() deletar = new EventEmitter(false);
-  dataSource!: MatTableDataSource<Editora>;
 
+  readonly displayedColumns = ['id', 'idioma', 'sigla', 'acoes'];
+  dataSource!: MatTableDataSource<Idioma>;
 
-  readonly displayedColumns = ['id', 'nome', 'acoes'];
-
-  constructor(private editorasSerice: EditorasService) {
-    this.editorasSerice.listarTodos().subscribe((dados) => {
+  constructor(private idiomaService: IdiomasService) {
+    this.idiomaService.listarTodos().subscribe((dados) => {
       console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );
  }
+
   ngOnInit(): void {
   }
 
@@ -33,12 +33,12 @@ export class EditorasListComponent implements OnInit {
     this.adicionar.emit(true);
   }
 
-  onEditar(editora: Editora) {
-    this.editar.emit(editora);
+  onEditar(idioma: Idioma) {
+    this.editar.emit(idioma);
   }
 
-  onDeletar(editora: Editora) {
-    this.deletar.emit(editora);
+  onDeletar(idioma: Idioma) {
+    this.deletar.emit(idioma);
   }
 
   doFilter(event: Event){

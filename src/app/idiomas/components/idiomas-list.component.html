@@ -1,0 +1,50 @@
+<div class="example-header">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="doFilter($event)"
+      placeholder="Digite id, idioma ou sigla"
+    />
+  </mat-form-field>
+</div>
+<mat-table mat-table [dataSource]="dataSource">
+  <!-- Id -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let idioma">{{ idioma.id }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="idioma">
+    <mat-header-cell *matHeaderCellDef>Idioma</mat-header-cell>
+    <mat-cell *matCellDef="let idioma">{{ idioma.idioma }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="sigla">
+    <mat-header-cell *matHeaderCellDef>Sigla</mat-header-cell>
+    <mat-cell *matCellDef="let idioma">{{ idioma.sigla }}</mat-cell>
+  </ng-container>
+
+  <!-- Açoes -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar Idioma">
+        <mat-icon (click)="onAdicionar()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let idioma" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar Idioma">
+        <mat-icon (click)="onEditar(idioma)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover Idioma">
+        <mat-icon (click)="onDeletar(idioma)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

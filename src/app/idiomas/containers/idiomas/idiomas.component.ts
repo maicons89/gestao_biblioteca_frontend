@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 
 import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
-import { Assunto } from '../../model/assunto';
-import { AssuntosService } from '../../services/assuntos.service';
+import { Idioma } from '../../model/idioma';
+import { IdiomasService } from '../../services/idiomas.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-assuntos',
-  templateUrl: './assuntos.component.html',
-  styleUrls: ['./assuntos.component.css']
+  selector: 'app-idiomas',
+  templateUrl: './idiomas.component.html',
+  styleUrls: ['./idiomas.component.css']
 })
-export class AssuntosComponent implements OnInit {
+export class IdiomasComponent implements OnInit {
 
-  assuntos$: Observable<Assunto[]> | null = null;;
+  idiomas$: Observable<Idioma[]> | null = null;;
 
   constructor(
-    private assuntosService: AssuntosService,
+    private idiomasService: IdiomasService,
     public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
@@ -28,10 +28,10 @@ export class AssuntosComponent implements OnInit {
     }
 
     refresh() {
-      this.assuntos$ = this.assuntosService.listarTodos()
+      this.idiomas$ = this.idiomasService.listarTodos()
       .pipe(
         catchError(error => {
-          this.onError('Erro ao carregar assuntos.');
+          this.onError('Erro ao carregar idiomas.');
           return of([])
         })
       );
@@ -50,21 +50,21 @@ export class AssuntosComponent implements OnInit {
     this.router.navigate(['novo'], {relativeTo: this.route});
   }
 
-  onEditar(assunto: Assunto) {
-    this.router.navigate(['editar', assunto.id], {relativeTo: this.route});
+  onEditar(idioma: Idioma) {
+    this.router.navigate(['editar', idioma.id], {relativeTo: this.route});
   }
 
-  onDeletar(assunto: Assunto) {
-    this.assuntosService.deletar(assunto.id).subscribe(
+  onDeletar(idioma: Idioma) {
+    this.idiomasService.deletar(idioma.id).subscribe(
       () => {
         this.refresh();
-        this.snackBar.open('Assunto removido com sucesso!', 'X', {
+        this.snackBar.open('Idioma removido com sucesso!', 'X', {
           duration: 5000,
           verticalPosition: 'top',
           horizontalPosition: 'center'
         });
       },
-      () => this.onError('Erro ao tentar remover assunto.')
+      () => this.onError('Erro ao tentar remover idioma.')
     );
   }
 

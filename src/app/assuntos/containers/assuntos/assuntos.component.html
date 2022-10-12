@@ -4,7 +4,6 @@
   <div class="column-flex mat-elevation-z8">
     <app-assuntos-list
       *ngIf="assuntos$ | async as assuntos; else loading"
-      [assuntos]="assuntos"
       (adicionar)="onAdicionar()"
       (editar)="onEditar($event)"
       (deletar)="onDeletar($event)"

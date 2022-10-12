@@ -14,6 +14,11 @@ const routes: Routes = [
       loadChildren: () => import('./assuntos/assuntos.module').then(m => m.AssuntosModule)
     },
 
+    {
+      path: 'idiomas',
+      loadChildren: () => import('./idiomas/idiomas.module').then(m => m.IdiomasModule)
+    },
+
 ];
 
 
