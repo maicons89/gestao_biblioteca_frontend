@@ -1,4 +1,4 @@
 export interface Editora {
-  id: number;
-  nome: String;
+  id: string;
+  nome: string;
 }
