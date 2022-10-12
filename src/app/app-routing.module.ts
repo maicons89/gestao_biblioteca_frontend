@@ -7,9 +7,16 @@ const routes: Routes = [
     {
       path: 'editoras',
       loadChildren: () => import('./editoras/editoras.module').then(m => m.EditorasModule)
-    }
+    },
+
+    {
+      path: 'assuntos',
+      loadChildren: () => import('./editoras/editoras.module').then(m => m.EditorasModule)
+    },
 
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

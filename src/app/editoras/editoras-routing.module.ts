@@ -11,6 +11,8 @@ const routes: Routes = [
   { path: 'editar/:id', component: EditoraFormComponent, resolve: { editora: EditoraResolver}},
 ];
 
+
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
