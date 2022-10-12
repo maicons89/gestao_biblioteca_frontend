@@ -11,7 +11,7 @@ const routes: Routes = [
 
     {
       path: 'assuntos',
-      loadChildren: () => import('./editoras/editoras.module').then(m => m.EditorasModule)
+      loadChildren: () => import('./assuntos/assuntos.module').then(m => m.AssuntosModule)
     },
 
 ];
