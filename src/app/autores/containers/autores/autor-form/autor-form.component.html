@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-toolbar>Detalhes do Autor</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="nome" required />
+        <mat-error *ngIf="form.invalid"
+          >Campo nome não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Código Cutter"
+          formControlName="codigoCutter"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo código cutter não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data Nascimento: </mat-label>
+        <input
+          matInput
+          formControlName="dataNascimento"
+          type="date"
+          placeholder="DD/MM/YYYY"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo data nascimento não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data Falecimento: </mat-label>
+        <input
+          matInput
+          formControlName="dataFalecimento"
+          type="date"
+          placeholder="DD/MM/YYYY"
+        />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,60 @@
+<div class="example-header">
+  <mat-form-field>
+    <input
+      matInput
+      (keyup)="doFilter($event)"
+      placeholder="Digite id, nome, código cutter, data nascimento ou data falecimento"
+    />
+  </mat-form-field>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
+  <!-- Id -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let autor">{{ autor.id }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let autor">{{ autor.nome }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="codigoCutter">
+    <mat-header-cell *matHeaderCellDef>Código Cutter</mat-header-cell>
+    <mat-cell *matCellDef="let autor">{{ autor.codigoCutter }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dataNascimento">
+    <mat-header-cell *matHeaderCellDef>Data Nascimento</mat-header-cell>
+    <mat-cell *matCellDef="let autor">{{ autor.dataNascimento }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dataFalecimento">
+    <mat-header-cell *matHeaderCellDef>Data Falecimento</mat-header-cell>
+    <mat-cell *matCellDef="let autor">{{ autor.dataFalecimento }}</mat-cell>
+  </ng-container>
+
+  <!-- Açoes -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar Autor">
+        <mat-icon (click)="onAdicionar()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let autor" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar Autor">
+        <mat-icon (click)="onEditar(autor)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover Autor">
+        <mat-icon (click)="onDeletar(autor)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
