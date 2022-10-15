@@ -25,7 +25,6 @@ export class AssuntoFormComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private location: Location,
     private route: ActivatedRoute) {
-    // this.form
    }
 
   ngOnInit(): void {

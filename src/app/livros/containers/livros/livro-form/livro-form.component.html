@@ -14,19 +14,14 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Número Edição" formControlName="numeroEdicao" required [readonly]="readOnly" />
+        <input matInput placeholder="Número Edição" formControlName="numeroEdicao" type="number" required
+          [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo numero edição não pode ser vazio.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Descrição Fisíca" formControlName="descricaoFisica" required
-          [readonly]="readOnly" />
-        <mat-error *ngIf="form.invalid">Campo descrição fisíca não pode ser vazio.</mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Qtd Disponível Empréstimo" formControlName="qtdDisponivelEmprestimo" required
-          [readonly]="readOnly" />
+        <input matInput placeholder="Qtd Disponível Empréstimo" type="number" formControlName="qtdDisponivelEmprestimo"
+          required [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo qtd disponível empréstimo não pode ser vazio.</mat-error>
       </mat-form-field>
 
@@ -34,6 +29,36 @@
         <input matInput placeholder="Descrição" formControlName="descricao" required [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo descrição não pode ser vazio.</mat-error>
       </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Assunto</mat-label>
+        <mat-select formControlName="idAssunto" required>
+          <mat-option *ngFor="let assunto of nomesAssuntos" [value]="assunto">{{assunto}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Idioma</mat-label>
+        <mat-select formControlName="idIdioma" required>
+          <mat-option *ngFor="let idioma of nomesIdiomas" [value]="idioma">{{idioma}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Editora</mat-label>
+        <mat-select formControlName="idEditora" required>
+          <mat-option *ngFor="let editora of nomesEditoras" [value]="editora">{{editora}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Autor</mat-label>
+        <mat-select formControlName="idAutor" required>
+          <mat-option *ngFor="let autor of nomesAutores" [value]="autor">{{autor}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
     </form>
   </mat-card-content>
 

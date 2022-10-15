@@ -1,9 +1,5 @@
 <mat-toolbar class="mat-elevation-z8">
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
@@ -12,14 +8,10 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img
-      class="avatar mat-elevation-z8"
-      src="../../../assets/bob.jpg"
-      alt="Bob"
-    />
+    <img class="avatar mat-elevation-z8" src="../../../assets/mulher2.jpg" alt="mulher2" />
 
-    <h4 class="name">Bob</h4>
-    <p class="designation">Bilbiotecário</p>
+    <h4 class="name">Jaqueline Stumm</h4>
+    <p class="designation">Bilbiotecária</p>
 
     <mat-divider></mat-divider>
 

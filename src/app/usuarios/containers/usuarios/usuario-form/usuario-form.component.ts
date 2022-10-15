@@ -40,6 +40,18 @@ export class UsuarioFormComponent implements OnInit {
   ngOnInit(): void {
     const usuario: Usuario = this.route.snapshot.data["usuario"];
     if(usuario.id != undefined){
+    if(this.readOnly){
+      this.form.controls['id'].disable();
+      this.form.controls['nome'].disable();
+      this.form.controls['cpf'].disable();
+      this.form.controls['telefone'].disable();
+      this.form.controls['email'].disable();
+      this.form.controls['logradouro'].disable();
+      this.form.controls['numero'].disable();
+      this.form.controls['complemento'].disable();
+      this.form.controls['bairro'].disable();
+      this.form.controls['cep'].disable();
+    }
     this.form.setValue({
       id: usuario.id,
       nome: usuario.nome,
