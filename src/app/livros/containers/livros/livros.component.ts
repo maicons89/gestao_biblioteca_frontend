@@ -50,6 +50,10 @@ export class LivrosComponent implements OnInit {
     this.router.navigate(['novo'], {relativeTo: this.route});
   }
 
+  onDetalhar(livro: Livro) {
+    this.router.navigate(['detalhar', livro.id], {relativeTo: this.route,  queryParams: { readOnly: true }});
+  }
+
   onEditar(livro: Livro) {
     this.router.navigate(['editar', livro.id], {relativeTo: this.route});
   }

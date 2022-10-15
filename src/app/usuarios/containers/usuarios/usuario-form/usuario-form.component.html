@@ -8,17 +8,19 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="CPF" formControlName="cpf" required [readonly]="readOnly" />
+        <input matInput placeholder="CPF" type="text" mask=" 000.000.000-99" formControlName="cpf" required
+          [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo CPF não pode ser vazio.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Telefone" formControlName="telefone" required [readonly]="readOnly" />
+        <input matInput placeholder="Telefone" type="text" mask="(000) 00000-0000" formControlName="telefone" required
+          [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo telefone não pode ser vazio.</mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Email" formControlName="email" required [readonly]="readOnly" />
+        <input matInput placeholder="Email" type="email" formControlName="email" required [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo email não pode ser vazio.</mat-error>
       </mat-form-field>
 

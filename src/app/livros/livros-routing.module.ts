@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: '', component: LivrosComponent },
   { path: 'novo', component: LivroFormComponent, resolve: { livro: LivroResolver}},
   { path: 'editar/:id', component: LivroFormComponent, resolve: { livro: LivroResolver}},
+  { path: 'detalhar/:id', component: LivroFormComponent, resolve: { livro: LivroResolver}},
 ];
 
 

@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
@@ -13,6 +13,8 @@ import { LivrosService } from '../../../services/livros.service';
   styleUrls: ['./livro-form.component.css']
 })
 export class LivroFormComponent implements OnInit {
+
+  @Input() readOnly = this.route.snapshot.queryParamMap.get("readOnly");
 
   form = this.formBuilder.group({
     id: [''],
@@ -29,7 +31,6 @@ export class LivroFormComponent implements OnInit {
     private _snackBar: MatSnackBar,
     private location: Location,
     private route: ActivatedRoute) {
-    // this.form
    }
 
   ngOnInit(): void {

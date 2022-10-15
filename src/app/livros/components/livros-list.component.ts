@@ -12,6 +12,7 @@ import { LivrosService } from './../services/livros.service';
 export class LivrosListComponent implements OnInit {
 
   @Output() adicionar = new EventEmitter(false);
+  @Output() detalhar = new EventEmitter(false);
   @Output() editar = new EventEmitter(false);
   @Output() deletar = new EventEmitter(false);
 
@@ -31,6 +32,10 @@ export class LivrosListComponent implements OnInit {
 
   onAdicionar() {
     this.adicionar.emit(true);
+  }
+
+  onDetalhar(livro: Livro) {
+    this.detalhar.emit(livro);
   }
 
   onEditar(livro: Livro) {

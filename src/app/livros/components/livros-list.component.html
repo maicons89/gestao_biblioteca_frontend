@@ -40,6 +40,10 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let livro" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Detalhar Livro">
+        <mat-icon (click)="onDetalhar(livro)">search</mat-icon>
+      </button>
+
       <button mat-icon-button color="primary" aria-label="Editar Livro">
         <mat-icon (click)="onEditar(livro)">edit</mat-icon>
       </button>
