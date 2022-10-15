@@ -1,10 +1,7 @@
 <div class="example-header">
-  <mat-form-field>
-    <input
-      matInput
-      (keyup)="doFilter($event)"
-      placeholder="Digite id ou nome"
-    />
+  <mat-form-field class="full-width">
+    <input matInput (keyup)="doFilter($event)" placeholder="Digite id ou nome" />
+    <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
 </div>
 

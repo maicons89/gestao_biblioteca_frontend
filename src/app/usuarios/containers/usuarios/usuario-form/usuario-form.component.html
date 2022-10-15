@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-toolbar>Detalhes do Usuario</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="nome" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo nome não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="CPF" formControlName="cpf" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo CPF não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Telefone" formControlName="telefone" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo telefone não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Email" formControlName="email" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo email não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Logradouro" formControlName="logradouro" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo logradouro não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Numero" formControlName="numero" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo numero não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Complemento" formControlName="complemento" [readonly]="readOnly" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="CEP" formControlName="cep" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo cep não pode ser vazio.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Bairro" formControlName="bairro" required [readonly]="readOnly" />
+        <mat-error *ngIf="form.invalid">Campo bairro não pode ser vazio.</mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button *ngIf="!readOnly" mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

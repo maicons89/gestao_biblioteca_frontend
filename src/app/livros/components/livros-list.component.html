@@ -1,0 +1,55 @@
+<div class="example-header">
+  <mat-form-field class="full-width">
+    <input matInput (keyup)="doFilter($event)" placeholder="Digite id, isbn, título ou número edição" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
+  <!-- nome -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let livro">{{ livro.id }}</mat-cell>
+  </ng-container>
+
+  <!-- nome -->
+  <ng-container matColumnDef="isbn">
+    <mat-header-cell *matHeaderCellDef>ISBN</mat-header-cell>
+    <mat-cell *matCellDef="let livro">{{ livro.isbn }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="tituloPrincipal">
+    <mat-header-cell *matHeaderCellDef>Título Principal</mat-header-cell>
+    <mat-cell *matCellDef="let livro">{{ livro.tituloPrincipal }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="numeroEdicao">
+    <mat-header-cell *matHeaderCellDef>Número Edição</mat-header-cell>
+    <mat-cell *matCellDef="let livro">{{ livro.numeroEdicao }}</mat-cell>
+  </ng-container>
+
+
+  <!-- Açoes -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar Livro">
+        <mat-icon (click)="onAdicionar()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let livro" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Editar Livro">
+        <mat-icon (click)="onEditar(livro)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover Livro">
+        <mat-icon (click)="onDeletar(livro)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

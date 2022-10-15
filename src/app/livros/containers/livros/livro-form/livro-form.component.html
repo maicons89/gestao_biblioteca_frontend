@@ -1,0 +1,80 @@
+<mat-card>
+  <mat-toolbar>Detalhes do Livro</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Isbn" formControlName="isbn" required />
+        <mat-error *ngIf="form.invalid"
+          >Campo isbn não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Título Principal"
+          formControlName="tituloPrincipal"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo título principal não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Número Edição"
+          formControlName="numeroEdicao"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo numero edição não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Descrição Fisíca"
+          formControlName="descricaoFisica"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo descrição fisíca não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Qtd Disponível Empréstimo"
+          formControlName="qtdDisponivelEmprestimo"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo qtd disponível empréstimo não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Descrição"
+          formControlName="descricao"
+          required
+        />
+        <mat-error *ngIf="form.invalid"
+          >Campo descrição não pode ser vazio.</mat-error
+        >
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

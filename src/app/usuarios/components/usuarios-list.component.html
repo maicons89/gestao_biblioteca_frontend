@@ -1,0 +1,58 @@
+<div class="example-header">
+  <mat-form-field class="full-width">
+    <input matInput (keyup)="doFilter($event)" placeholder="Digite id, nome, cpf ou email" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
+  <!-- nome -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let usuario">{{ usuario.id }}</mat-cell>
+  </ng-container>
+
+  <!-- nome -->
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let usuario">{{ usuario.nome }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="cpf">
+    <mat-header-cell *matHeaderCellDef>CPF</mat-header-cell>
+    <mat-cell *matCellDef="let usuario">{{ usuario.cpf }}</mat-cell>
+  </ng-container>
+
+  <!-- Nome -->
+  <ng-container matColumnDef="email">
+    <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+    <mat-cell *matCellDef="let usuario">{{ usuario.email }}</mat-cell>
+  </ng-container>
+
+  <!-- Açoes -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+      <button mat-mini-fab color="accent" aria-label="Adicionar Usuario">
+        <mat-icon (click)="onAdicionar()">add</mat-icon>
+      </button>
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let usuario" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Detalhar Usuario">
+        <mat-icon (click)="onDetalhar(usuario)">search</mat-icon>
+      </button>
+
+      <button mat-icon-button color="primary" aria-label="Editar Usuario">
+        <mat-icon (click)="onEditar(usuario)">edit</mat-icon>
+      </button>
+
+      <button mat-icon-button color="warn" aria-label="Remover Usuario">
+        <mat-icon (click)="onDeletar(usuario)">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

@@ -10,3 +10,7 @@
 .action-column-header {
   flex: 0 0 55px;
 }
+
+.full-width {
+  width: 90%;
+}
