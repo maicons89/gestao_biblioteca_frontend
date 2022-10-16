@@ -64,7 +64,7 @@ export class AutoresComponent implements OnInit {
           horizontalPosition: 'center'
         });
       },
-      () => this.onError('Erro ao tentar remover autor.')
+      (err) => this.onError(err)
     );
   }
 

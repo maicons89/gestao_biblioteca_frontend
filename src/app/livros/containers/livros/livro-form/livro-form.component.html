@@ -20,12 +20,6 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
-        <input matInput placeholder="Qtd Disponível Empréstimo" type="number" formControlName="qtdDisponivelEmprestimo"
-          required [readonly]="readOnly" />
-        <mat-error *ngIf="form.invalid">Campo qtd disponível empréstimo não pode ser vazio.</mat-error>
-      </mat-form-field>
-
-      <mat-form-field class="full-width">
         <input matInput placeholder="Descrição" formControlName="descricao" required [readonly]="readOnly" />
         <mat-error *ngIf="form.invalid">Campo descrição não pode ser vazio.</mat-error>
       </mat-form-field>

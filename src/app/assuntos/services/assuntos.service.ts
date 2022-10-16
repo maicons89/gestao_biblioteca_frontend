@@ -1,7 +1,8 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, delay, first, throwError } from 'rxjs';
+
 import { Assunto } from '../model/assunto';
-import { HttpClient } from '@angular/common/http'
-import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,7 +41,11 @@ export class AssuntosService {
   }
 
   deletar(id: string) {
-    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first(), catchError(this.handleError));
+  }
+
+  private handleError(error: HttpErrorResponse){
+    return throwError(error.error.mensagem || "Erro ao tentar remover assunto.")
   }
 
 }

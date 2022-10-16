@@ -64,7 +64,7 @@ export class IdiomasComponent implements OnInit {
           horizontalPosition: 'center'
         });
       },
-      () => this.onError('Erro ao tentar remover idioma.')
+      (err) => this.onError(err)
     );
   }
 

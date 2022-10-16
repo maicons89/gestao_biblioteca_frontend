@@ -29,7 +29,6 @@ export class LivroFormComponent implements OnInit {
     isbn: ['', Validators.required],
     tituloPrincipal: ['', Validators.required],
     numeroEdicao: ['', Validators.required],
-    qtdDisponivelEmprestimo: ['', Validators.required],
     descricao: ['', Validators.required],
     idIdioma: [''],
     idAutor: [''],
@@ -94,7 +93,6 @@ export class LivroFormComponent implements OnInit {
       this.form.controls['tituloPrincipal'].disable();
       this.form.controls['isbn'].disable();
       this.form.controls['numeroEdicao'].disable();
-      this.form.controls['qtdDisponivelEmprestimo'].disable();
       this.form.controls['descricao'].disable();
       this.form.controls['idAssunto'].disable();
       this.form.controls['idEditora'].disable();
@@ -106,7 +104,6 @@ export class LivroFormComponent implements OnInit {
       isbn: livro.isbn,
       tituloPrincipal: livro.tituloPrincipal,
       numeroEdicao: livro.numeroEdicao,
-      qtdDisponivelEmprestimo: livro.qtdDisponivelEmprestimo,
       descricao: livro.descricao,
       idIdioma: `${livro.idioma.id + " - " + livro.idioma.idioma}`,
       idAutor: `${livro.autor.id + " - " + livro.autor.nome}`,

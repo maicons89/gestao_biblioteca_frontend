@@ -64,7 +64,9 @@ export class AssuntosComponent implements OnInit {
           horizontalPosition: 'center'
         });
       },
-      () => this.onError('Erro ao tentar remover assunto.')
+      (err) => {
+        this.onError(err)
+      }
     );
   }
 

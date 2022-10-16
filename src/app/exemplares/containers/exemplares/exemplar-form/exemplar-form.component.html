@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-toolbar>Detalhes do Exemplar</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Código Exemplar" type="number" formControlName="codigoExemplar" required />
+        <mat-error *ngIf="form.invalid">Campo código exemplar não pode ser vazio.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Descrição" formControlName="descricao" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

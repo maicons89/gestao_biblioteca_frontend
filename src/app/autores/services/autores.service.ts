@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Autor } from '../model/autor';
-import { HttpClient } from '@angular/common/http'
-import { delay, first, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { delay, first, tap, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -44,9 +44,12 @@ export class AutoresService {
   }
 
   deletar(id: string) {
-    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first(), catchError(this.handleError));
   }
 
+  private handleError(error: HttpErrorResponse){
+    return throwError(error.error.mensagem || "Erro ao tentar remover autor.")
+  }
 
 
 }

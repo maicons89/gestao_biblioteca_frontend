@@ -14,6 +14,7 @@ export class LivrosListComponent implements OnInit {
   @Output() adicionar = new EventEmitter(false);
   @Output() detalhar = new EventEmitter(false);
   @Output() editar = new EventEmitter(false);
+  @Output() cadastrarExemplar = new EventEmitter(false);
   @Output() deletar = new EventEmitter(false);
 
 
@@ -41,6 +42,11 @@ export class LivrosListComponent implements OnInit {
   onEditar(livro: Livro) {
     this.editar.emit(livro);
   }
+
+  onAdicionarExemplar(livro: Livro){
+    this.cadastrarExemplar.emit(livro);
+  }
+
 
   onDeletar(livro: Livro) {
     this.deletar.emit(livro);

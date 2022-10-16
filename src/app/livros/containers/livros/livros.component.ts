@@ -58,6 +58,10 @@ export class LivrosComponent implements OnInit {
     this.router.navigate(['editar', livro.id], {relativeTo: this.route});
   }
 
+  onAdicionarExemplar(livro: Livro) {
+    this.router.navigate(['adicionar-exemplar'], {relativeTo: this.route,  queryParams: { livroID: livro.id }});
+  }
+
   onDeletar(livro: Livro) {
     this.livrosService.deletar(livro.id).subscribe(
       () => {

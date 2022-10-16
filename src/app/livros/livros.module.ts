@@ -8,6 +8,7 @@ import { LivrosComponent } from './containers/livros/livros.component';
 import { LivroFormComponent } from './containers/livros/livro-form/livro-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LivrosListComponent } from './components/livros-list.component';
+import { ExemplarFormComponent } from '../exemplares/containers/exemplares/exemplar-form/exemplar-form.component';
 
 
 
@@ -15,6 +16,7 @@ import { LivrosListComponent } from './components/livros-list.component';
   declarations: [
     LivrosComponent,
     LivroFormComponent,
+    ExemplarFormComponent,
     LivrosListComponent
   ],
   imports: [

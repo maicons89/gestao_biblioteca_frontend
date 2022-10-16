@@ -64,7 +64,7 @@ export class EditorasComponent implements OnInit {
           horizontalPosition: 'center'
         });
       },
-      () => this.onError('Erro ao tentar remover editora.')
+      (err) => this.onError(err)
     );
   }
 
