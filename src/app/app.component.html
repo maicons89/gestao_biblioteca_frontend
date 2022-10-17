@@ -8,7 +8,7 @@
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img class="avatar mat-elevation-z8" src="../../../assets/mulher2.jpg" alt="mulher2" />
+    <img class="avatar mat-elevation-z8" src="../../../assets/mulher.jpg" alt="mulher" />
 
     <h4 class="name">Jaqueline</h4>
     <p class="designation">Bilbiotecária</p>
@@ -39,11 +39,14 @@
       <mat-icon>person_add</mat-icon>
       <span>Usuários</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/about">
+    <button mat-button class="menu-button" routerLink="/emprestimos">
       <mat-icon>task</mat-icon>
-      <span>Reservas</span>
+      <span>Empréstimos</span>
     </button>
-
+    <button mat-button class="menu-button" routerLink="/devolucoes">
+      <mat-icon>reply</mat-icon>
+      <span>Devoluções</span>
+    </button>
     <mat-divider></mat-divider>
 
     <button mat-button class="menu-button" routerLink="/help">

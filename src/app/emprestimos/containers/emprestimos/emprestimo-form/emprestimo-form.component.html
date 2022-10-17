@@ -1,0 +1,45 @@
+<mat-card>
+  <mat-toolbar>Detalhes do Empréstimo</mat-toolbar>
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data Empréstimo: </mat-label>
+        <input matInput formControlName="dataEmprestimo" type="date" placeholder="DD/MM/YYYY" required />
+      </mat-form-field>
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data Prevista de Devolução: </mat-label>
+        <input matInput formControlName="dataDevolucaoPrevista" type="date" placeholder="DD/MM/YYYY" required />
+      </mat-form-field>
+
+
+      <mat-form-field class="full-width" appearance="fill">
+        <mat-label>Data de Devolução: </mat-label>
+        <input matInput formControlName="dataDevolucao" type="date" placeholder="DD/MM/YYYY" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Usuário</mat-label>
+        <mat-select formControlName="idUsuario" required>
+          <mat-option *ngFor="let usuario of nomesUsuarios" [value]="usuario">{{usuario}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Exemplar</mat-label>
+        <mat-select formControlName="idExemplar" required>
+          <mat-option *ngFor="let exemplar of nomesExemplares" [value]="exemplar">{{exemplar}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button *ngIf="!readOnly" mat-raised-button color="primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button mat-raised-button (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
