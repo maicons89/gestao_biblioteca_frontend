@@ -21,12 +21,12 @@ export class EmprestimoFormComponent implements OnInit {
   @Input() readOnly = this.route.snapshot.queryParamMap.get("readOnly");
   @Input() novo = this.route.snapshot.queryParamMap.get("novo");
 
-  dataAtual = new Date()
-  dataAtualEmprestimo = this.dataAtual.getDate()
-  dataAtualEmprestimoRealizado = this.dataAtual.setDate(this.dataAtualEmprestimo-1)
+  dataAtual = new Date();
+  dataAtualEmprestimo = this.dataAtual.getDate();
+  dataAtualEmprestimoRealizado = this.dataAtual.setDate(this.dataAtualEmprestimo);
   data = new Date()
   date = this.data.getDate()
-  dataPrevista = this.data.setDate(this.date+6)
+  dataPrevista = this.data.setDate(this.date+7)
 
 
   form = this.formBuilder.group({

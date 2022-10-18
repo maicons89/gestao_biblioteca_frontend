@@ -23,12 +23,15 @@
 
   <ng-container matColumnDef="dataEmprestimo">
     <mat-header-cell *matHeaderCellDef>Data Empréstimo</mat-header-cell>
-    <mat-cell *matCellDef="let exemplarEmprestimo">{{ exemplarEmprestimo.dataEmprestimo }}</mat-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">{{ exemplarEmprestimo.dataEmprestimo | date: 'dd/MM/yyyy'}}
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="dataDevolucaoPrevista">
     <mat-header-cell *matHeaderCellDef>Data Prevista de devolução</mat-header-cell>
-    <mat-cell *matCellDef="let exemplarEmprestimo">{{ exemplarEmprestimo.dataDevolucaoPrevista }}</mat-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">
+      {{ exemplarEmprestimo.dataDevolucaoPrevista | date: 'dd/MM/yyyy'}}
+    </mat-cell>
   </ng-container>
 
 
