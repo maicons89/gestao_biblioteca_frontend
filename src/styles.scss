@@ -2,11 +2,11 @@
 @import "@angular/material/theming";
 @include mat-core();
 
-$custom-app-primary: mat-palette($mat-blue,);
-$custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700);
+$custom-app-primary: mat-palette($mat-yellow,);
+$custom-app-secondary: mat-palette($mat-yellow, A200, A400, 700);
 $custom-app-warn: mat-palette($mat-red);
 
-$custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
+$custom-theme: mat-dark-theme($custom-app-primary, $custom-app-secondary, $custom-app-warn);
 
 @include angular-material-theme($custom-theme);
 
@@ -16,4 +16,5 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url("assets/fundo.png");
 }

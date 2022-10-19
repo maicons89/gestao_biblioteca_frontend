@@ -1,5 +1,5 @@
 mat-toolbar {
-  background: #004a9f;
+  background: #ffdf2b;
   color: white;
 }
 
@@ -7,8 +7,8 @@ mat-sidenav {
   margin: 16px;
   width: 200px;
   border-right: none;
-  background: #002b5c;
-  color: white;
+  background: #ffdf2b;
+  color: rgb(0, 0, 0);
   border-radius: 10px;
   padding: 16px;
   text-align: center;
@@ -71,4 +71,11 @@ mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+#cabecalho{
+  width: 397px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+
 }

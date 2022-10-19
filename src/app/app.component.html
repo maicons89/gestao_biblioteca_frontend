@@ -1,17 +1,18 @@
-<mat-toolbar class="mat-elevation-z8">
+<!-- <mat-toolbar class="mat-elevation-z8">
   <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
     <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
     <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
   </button>
   Gestão de Biblioteca
-</mat-toolbar>
+</mat-toolbar> -->
+<div id="cabecalho">
+  <img src="../assets/bibliotecabiai.png">
+</div>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-    <img class="avatar mat-elevation-z8" src="../../../assets/mulher.jpg" alt="mulher" />
 
-    <h4 class="name">Jaqueline</h4>
-    <p class="designation">Bilbiotecária</p>
+
 
     <mat-divider></mat-divider>
 
@@ -49,10 +50,10 @@
     </button>
     <mat-divider></mat-divider>
 
-    <button mat-button class="menu-button" routerLink="/help">
+    <!-- <button mat-button class="menu-button" routerLink="/help">
       <mat-icon>logout</mat-icon>
-      <span>Sair</span>
-    </button>
+      <span>Sair</span> -->
+    <!-- </button> -->
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="content mat-elevation-z8">

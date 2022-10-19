@@ -19,6 +19,7 @@ mat-card {
 }
 
 mat-toolbar {
-  background: #004a9f;
-  color: white;
+  background: #ffdf2b;
+  color: black;
+  font-style: oblique;
 }
