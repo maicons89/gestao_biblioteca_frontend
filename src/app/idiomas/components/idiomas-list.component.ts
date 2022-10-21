@@ -20,7 +20,6 @@ export class IdiomasListComponent implements OnInit {
 
   constructor(private idiomaService: IdiomasService) {
     this.idiomaService.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

@@ -30,6 +30,10 @@
     <mat-cell *matCellDef="let livro">{{ livro.numeroEdicao }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="qtdDisponivelEmprestimo">
+    <mat-header-cell *matHeaderCellDef>Qtd Disponível</mat-header-cell>
+    <mat-cell *matCellDef="let livro">{{ livro.qtdDisponivelEmprestimo }}</mat-cell>
+  </ng-container>
 
   <!-- Açoes -->
   <ng-container matColumnDef="acoes">

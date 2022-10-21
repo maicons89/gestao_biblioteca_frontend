@@ -15,7 +15,7 @@
       </mat-form-field>
 
 
-      <mat-form-field *ngIf="!novo" class="full-width" appearance="fill">
+      <mat-form-field class="full-width" appearance="fill">
         <mat-label>Data de Devolução: </mat-label>
         <input matInput formControlName="dataDevolucao" type="date" placeholder="DD/MM/YYYY" />
       </mat-form-field>
@@ -27,7 +27,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field *ngIf="!readOnly" appearance="fill" class="full-width">
+      <mat-form-field *ngIf="!readOnly && !devolver" appearance="fill" class="full-width">
         <mat-label>Exemplar</mat-label>
         <mat-select formControlName="idExemplar" required>
           <mat-option *ngFor="let exemplar of nomesExemplares" [value]="exemplar">{{exemplar}}</mat-option>
@@ -35,7 +35,7 @@
       </mat-form-field>
 
 
-      <mat-form-field *ngIf="readOnly" appearance="fill" class="full-width">
+      <mat-form-field *ngIf="readOnly || devolver" appearance="fill" class="full-width">
         <mat-label>Exemplar</mat-label>
         <mat-select formControlName="idExemplar" required>
           <mat-option *ngFor="let exemplar of nomesExemplaresTodos" [value]="exemplar">{{exemplar}}</mat-option>

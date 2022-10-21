@@ -20,6 +20,14 @@ export class ExemplaresService {
     );
   }
 
+  listarTodosComQuantidadeDisponivel() {
+    return this.httpClient.get<Exemplar[]>(`${this.API}/listaTodosDisponiveis`)
+    .pipe(
+      first(),
+      delay(500)
+    );
+  }
+
   loadById(id: number) {
     return this.httpClient.get<Exemplar>(`${this.API}/${id}`);
   }

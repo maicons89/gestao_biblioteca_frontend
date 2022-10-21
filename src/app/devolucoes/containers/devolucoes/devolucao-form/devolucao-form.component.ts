@@ -8,18 +8,23 @@ import { Exemplar } from '../../../../exemplares/model/exemplar';
 import { ExemplaresService } from '../../../../exemplares/services/exemplares.service';
 import { Usuario } from '../../../../usuarios/model/usuario';
 import { UsuariosService } from '../../../../usuarios/services/usuarios.service';
-import { ExemplarEmprestimo } from '../../../model/exemplarEmprestimo';
-import { EmprestimosService } from '../../../services/emprestimos.service';
+import { ExemplarEmprestimo } from '../../../../emprestimos/model/exemplarEmprestimo';
+import { DevolucoesService } from '../../../services/devolucoes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ErrorDialogComponent } from '../../../../shared/components/error-dialog/error-dialog.component';
+import { delay } from 'rxjs/operators';
+import { MultaDialogComponent } from '../../../../shared/components/multa-dialog/multa-dialog.component';
 
 @Component({
-  selector: 'app-emprestimo-form',
-  templateUrl: './emprestimo-form.component.html',
-  styleUrls: ['./emprestimo-form.component.css']
+  selector: 'app-devolucao-form',
+  templateUrl: './devolucao-form.component.html',
+  styleUrls: ['./devolucao-form.component.css']
 })
-export class EmprestimoFormComponent implements OnInit {
+export class DevolucaoFormComponent implements OnInit {
 
   @Input() readOnly = this.route.snapshot.queryParamMap.get("readOnly");
   @Input() novo = this.route.snapshot.queryParamMap.get("novo");
+  @Input() devolver = this.route.snapshot.queryParamMap.get("devolver");
 
   dataAtual = new Date();
   dataAtualEmprestimo = this.dataAtual.getDate();
@@ -40,12 +45,13 @@ export class EmprestimoFormComponent implements OnInit {
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
-    private service: EmprestimosService,
+    private service: DevolucoesService,
     private usuariosService: UsuariosService,
     private exemplaresService: ExemplaresService,
     private _snackBar: MatSnackBar,
     private location: Location,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    public dialog: MatDialog,) {
    }
 
    usuarios: Usuario[] = [];
@@ -56,7 +62,6 @@ export class EmprestimoFormComponent implements OnInit {
 
 
   ngOnInit(): void {
-
     this.usuariosService.listarTodos().subscribe(
       usuarios => {
         this.usuarios = usuarios;
@@ -78,13 +83,19 @@ export class EmprestimoFormComponent implements OnInit {
       }
     );
 
-    const exemplarEmprestimo: ExemplarEmprestimo = this.route.snapshot.data["emprestimo"];
+    const exemplarEmprestimo: ExemplarEmprestimo = this.route.snapshot.data["devolucao"];
 
     if(exemplarEmprestimo.id != undefined){
     if(this.readOnly){
       this.form.controls['dataEmprestimo'].disable();
       this.form.controls['dataDevolucaoPrevista'].disable();
       this.form.controls['dataDevolucao'].disable();
+      this.form.controls['idUsuario'].disable();
+      this.form.controls['idExemplar'].disable();
+    }
+    if(this.devolver){
+      this.form.controls['dataEmprestimo'].disable();
+      this.form.controls['dataDevolucaoPrevista'].disable();
       this.form.controls['idUsuario'].disable();
       this.form.controls['idExemplar'].disable();
     }
@@ -101,9 +112,21 @@ export class EmprestimoFormComponent implements OnInit {
 
 
   onSubmit() {
-    this.form.value.idUsuario =  this.form.value.idUsuario?.split("-")[0]
-    this.form.value.idExemplar =  this.form.value.idExemplar?.split("-")[0]
-    this.service.salvar(this.form.value).subscribe(result => this.onSucess(), error =>this.onError());
+    const exemplarEmprestimo: ExemplarEmprestimo = this.route.snapshot.data["devolucao"];
+    this.form.value.dataDevolucaoPrevista =  exemplarEmprestimo.dataDevolucaoPrevista
+    this.form.value.dataEmprestimo =  exemplarEmprestimo.dataEmprestimo
+    this.form.value.idUsuario = exemplarEmprestimo.idUsuario
+    this.form.value.idExemplar =  exemplarEmprestimo.idExemplar
+    if(new Date(this.form.value.dataDevolucao!!) > new Date(exemplarEmprestimo.dataDevolucaoPrevista)){
+      this.dialog.open(MultaDialogComponent, {
+        data: "A devolução está atrasada. Multa de R$5,00."
+      }).afterClosed().subscribe(res => {
+        this.service.salvar(this.form.value).subscribe(result => this.onSucess(), error =>this.onError());
+      });
+    }else{
+      this.service.salvar(this.form.value).subscribe(result => this.onSucess(), error =>this.onError());
+    }
+
   }
 
   onCancel() {
@@ -111,11 +134,11 @@ export class EmprestimoFormComponent implements OnInit {
   }
 
   private onSucess() {
-    this._snackBar.open('Empréstimo realizado com sucesso.','', { duration: 5000 });
+    this._snackBar.open('Devolução realizada com sucesso.','', { duration: 5000 });
     this.onCancel();
   }
 
   private onError() {
-    this._snackBar.open('Erro ao realizar empréstimo.','', { duration: 5000 });
+    this._snackBar.open('Erro ao realizar devolução.','', { duration: 5000 });
 }
 }

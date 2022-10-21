@@ -24,6 +24,11 @@
         <mat-error *ngIf="form.invalid">Campo descrição não pode ser vazio.</mat-error>
       </mat-form-field>
 
+      <mat-form-field *ngIf="readOnly" class="full-width">
+        <input matInput placeholder="Quantidade Disponível para Empréstimo" formControlName="qtdDisponivelEmprestimo"
+          [readonly]="readOnly" />
+      </mat-form-field>
+
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Assunto</mat-label>
         <mat-select formControlName="idAssunto" required>

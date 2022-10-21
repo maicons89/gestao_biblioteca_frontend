@@ -1,0 +1,60 @@
+<div class="example-header">
+  <mat-form-field class="full-width">
+    <input matInput (keyup)="doFilter($event)"
+      placeholder="Digite livro, cpf do usuário, data do empréstimo ou data de devolução" />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
+
+
+  <!-- nome -->
+  <ng-container matColumnDef="tituloPrincipal">
+    <mat-header-cell *matHeaderCellDef>Livro</mat-header-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">
+      {{ exemplarEmprestimo.exemplar.livro.tituloPrincipal }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cpf">
+    <mat-header-cell *matHeaderCellDef>Usuário</mat-header-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">{{ exemplarEmprestimo.usuario.cpf }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dataEmprestimo">
+    <mat-header-cell *matHeaderCellDef>Data Empréstimo</mat-header-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">{{ exemplarEmprestimo.dataEmprestimo | date: 'dd/MM/yyyy'}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="dataDevolucaoPrevista">
+    <mat-header-cell *matHeaderCellDef>Data de Devolução Prevista</mat-header-cell>
+    <mat-cell *matCellDef="let exemplarEmprestimo">
+      {{ exemplarEmprestimo.dataDevolucaoPrevista | date: 'dd/MM/yyyy'}}
+    </mat-cell>
+  </ng-container>
+
+
+
+  <!-- Açoes -->
+  <ng-container matColumnDef="acoes">
+    <mat-header-cell *matHeaderCellDef class="action-column-header">
+
+    </mat-header-cell>
+
+    <mat-cell *matCellDef="let exemplarEmprestimo" class="action-column">
+      <button mat-icon-button color="primary" aria-label="Detalhar Empréstimo">
+        <mat-icon (click)="onDetalhar(exemplarEmprestimo)">search</mat-icon>
+      </button>
+
+      <button mat-icon-button color="primary" aria-label="Devolver">
+        <mat-icon (click)="onDevolver(exemplarEmprestimo)">reply</mat-icon>
+      </button>
+
+
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

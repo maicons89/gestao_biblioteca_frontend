@@ -21,7 +21,6 @@ export class AutoresListComponent implements OnInit {
 
   constructor(private autoresService: AutoresService) {
     this.autoresService.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

@@ -1,25 +1,26 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
-import { ExemplarEmprestimo } from '../model/exemplarEmprestimo';
-import { EmprestimosService } from '../services/emprestimos.service';
+import { ExemplarEmprestimo } from '../../emprestimos/model/exemplarEmprestimo'
+import { DevolucoesService } from '../services/devolucoes.service';
 
 @Component({
-  selector: 'app-emprestimos-list',
-  templateUrl: './emprestimos-list.component.html',
-  styleUrls: ['./emprestimos-list.component.css']
+  selector: 'app-devolucoes-list',
+  templateUrl: './devolucoes-list.component.html',
+  styleUrls: ['./devolucoes-list.component.css']
 })
-export class EmprestimosListComponent implements OnInit {
+export class DevolucoesListComponent implements OnInit {
 
   @Output() adicionar = new EventEmitter(false);
   @Output() detalhar = new EventEmitter(false);
+  @Output() devolver = new EventEmitter(false);
 
 
   readonly displayedColumns = ['tituloPrincipal', 'cpf', 'dataEmprestimo', 'dataDevolucaoPrevista', 'acoes'];
   dataSource!: MatTableDataSource<ExemplarEmprestimo>;
 
-  constructor(private emprestimosService: EmprestimosService) {
-    this.emprestimosService.listarTodosEmAberto().subscribe((dados) => {
+  constructor(private devolucoesService: DevolucoesService) {
+    this.devolucoesService.listarTodosEmAberto().subscribe((dados) => {
       this.dataSource = new MatTableDataSource(dados);
     }
    );
@@ -34,6 +35,11 @@ export class EmprestimosListComponent implements OnInit {
   onDetalhar(exemplarEmprestimo: ExemplarEmprestimo) {
     this.detalhar.emit(exemplarEmprestimo);
   }
+
+  onDevolver(exemplarEmprestimo: ExemplarEmprestimo) {
+    this.devolver.emit(exemplarEmprestimo);
+  }
+
 
   doFilter(event: Event){
     const filterValue = (event.target as HTMLInputElement).value;

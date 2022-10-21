@@ -21,7 +21,6 @@ export class AssuntosListComponent implements OnInit {
 
   constructor(private assuntosService: AssuntosService) {
     this.assuntosService.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

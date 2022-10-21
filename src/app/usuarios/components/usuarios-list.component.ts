@@ -22,7 +22,6 @@ export class UsuariosListComponent implements OnInit {
 
   constructor(private usuariosService: UsuariosService) {
     this.usuariosService.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

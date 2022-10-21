@@ -21,7 +21,6 @@ export class EditorasListComponent implements OnInit {
 
   constructor(private editorasSerice: EditorasService) {
     this.editorasSerice.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

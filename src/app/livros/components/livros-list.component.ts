@@ -18,12 +18,11 @@ export class LivrosListComponent implements OnInit {
   @Output() deletar = new EventEmitter(false);
 
 
-  readonly displayedColumns = ['id', 'isbn', 'tituloPrincipal', 'numeroEdicao', 'acoes'];
+  readonly displayedColumns = ['id', 'isbn', 'tituloPrincipal', 'numeroEdicao', 'qtdDisponivelEmprestimo', 'acoes'];
   dataSource!: MatTableDataSource<Livro>;
 
   constructor(private livrosService: LivrosService) {
     this.livrosService.listarTodos().subscribe((dados) => {
-      console.log(dados);
       this.dataSource = new MatTableDataSource(dados);
     }
    );

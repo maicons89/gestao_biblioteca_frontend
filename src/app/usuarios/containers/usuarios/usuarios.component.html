@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-toolbar>Usuarios</mat-toolbar>
+  <mat-toolbar>Usuários</mat-toolbar>
 
   <div class="column-flex mat-elevation-z8">
     <app-usuarios-list *ngIf="usuarios$ | async as usuarios; else loading" (adicionar)="onAdicionar()"
