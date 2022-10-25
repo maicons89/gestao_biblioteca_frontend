@@ -27,7 +27,7 @@ Usuários. </p>
 </p>
 
 <div align="center">
-<img src="https://user-images.githubusercontent.com/104724792/197665198-3885c5cd-afb2-4d55-9260-62b1fa41bab0.gif" width="700px" />
+<img src="https://user-images.githubusercontent.com/104724792/197667022-6a826051-e8c8-4e56-83e2-62d073da3f77.gif" width="700px" />
 </div>
 
 ---
