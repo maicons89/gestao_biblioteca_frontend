@@ -10,11 +10,27 @@
 ---
 ## 📕📗📘 Descrição das Funcionalidades <a	name="descrição das funcionalidades"></a>
 
-O Bibliotecário(a) pode realizar um CRUD (cadastrar, editar, listar e excluir).
-Editoras
-Assuntos
-Idiomas
-Autores
+<p align="justify">O Bibliotecário(a) pode realizar um CRUD (cadastrar, editar, listar e excluir).
+Editoras,
+Assuntos,
+Idiomas,
+Autores,
+Livros,
+Usuários. </p>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/104724792/197662919-e3093c4d-e81b-48ae-9424-7b0a08282768.gif" width="700px" />
+</div>
+
+ <p align="justify"> Para realizar o empréstimo é necessário o livro e o cpf do usuário cadastrado. O usuário tem 7 dias como data prevista de devolução.
+  Referente a devolução, caso o usuário ultrapasse os 7 dias será cobrado uma multa no valor de R$ 5,00.
+</p>
+
+<div align="center">
+<img src="https://user-images.githubusercontent.com/104724792/197665198-3885c5cd-afb2-4d55-9260-62b1fa41bab0.gif" width="700px" />
+</div>
+
+
 
 
 
