@@ -10,4 +10,13 @@
 ---
 ## 📕📗📘 Descrição das Funcionalidades <a	name="descrição das funcionalidades"></a>
 
+O Bibliotecário(a) pode realizar um CRUD (cadastrar, editar, listar e excluir).
+Editoras
+Assuntos
+Idiomas
+Autores
+
+
+
+
 
