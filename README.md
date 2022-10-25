@@ -30,6 +30,42 @@ Usuários. </p>
 <img src="https://user-images.githubusercontent.com/104724792/197665198-3885c5cd-afb2-4d55-9260-62b1fa41bab0.gif" width="700px" />
 </div>
 
+---
+## 🛠️ Ferramentas e tecnologias utilizadas <a	name="ferramentas-e-tecnologias-utilizadas"></a>
+
+**Backend:** 
+- linguagem de programação: Java <img align="center" alt="kaka-JAVA" height="25" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg"/>  
+- Framework: Spring <img align=center alt=kaka-vscode height=25 width=40 src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/spring/spring-original.svg" /> 
+- IDE: Eclipse   <img align="center" alt="html" height="25" width="40" src="https://www.svgrepo.com/show/353685/eclipse-icon.svg"> 
+- Banco de Dados: MySQL <img align=center alt=kaka-vscode height=25 width=40 src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/mysql/mysql-original.svg" />
+
+
+**FrontEnd:**
+- linguagem de programação: TypeScript <img align="center" alt="kaka-ts" height=25 width=40 src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/typescript/typescript-original.svg"/> 
+- FrameWork: Angular <img align="center" alt="kaka-Angular" height="25" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/angularjs/angularjs-original.svg" /> 
+- IDE: VSCode <img align=center alt=kaka-vscode height=25 width=40 src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/vscode/vscode-original.svg" />
+
+---
+## :gear: Abrir e rodar o projeto <a	name="abrir-e-rodar-o-projeto"></a>
+Para abrir e rodar este projeto no seu desktop basta seguir os alguns passos simples. Mas antes é necessário que se tenha instalado o [Git](https://git-scm.com/downloads), [Node.js](https://nodejs.org/), [VSCode](https://code.visualstudio.com/download), [MYSQL](https://www.mysql.com/downloads/Building) e o [Eclipse](https://www.eclipse.org/downloads/). 
+
+**Agora basta:**
+1. Clonar este repositorio.
+
+  `git clone https://github.com/ProjetoEntra021/ProjetoFinal.git`
+ 
+2. Abrir o projeto no eclipe e rodar como uma aplicação Java.
+
+3. No VSCode, instalar as dependencias.
+
+  `npm install`
+
+4. Rodar no servidor local
+
+  `npm run start`
+ 
+ Agora a Biblioteca Biai deve estar rodando e pode ser acessado pelo navegador com a url [http://localhost:4200/](http://localhost:4200/)
+
 
 
 
