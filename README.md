@@ -52,11 +52,11 @@ Para abrir e rodar este projeto no seu desktop basta seguir os alguns passos sim
 **Agora basta:**
 1. Clonar este repositorio.
 
-  `git clone https://github.com/ProjetoEntra021/ProjetoFinal.git`
+  `git clone https://github.com/maicons89/gestao_biblioteca_frontend.git`
  
-2. Abrir o projeto no eclipe e rodar como uma aplicação Java.
+2. Abrir o projeto no eclipse e rodar como uma aplicação Java.
 
-3. No VSCode, instalar as dependencias.
+3. No VSCode, instalar as dependências.
 
   `npm install`
 
