@@ -1,4 +1,4 @@
-<h1 align="center">Biblioteca Biai.</h1> 
+<h1 align="center">Biblioteca Biai</h1> 
 
 ## 📚 Sobre  <a	name="sobre"></a>
  <p align="justify">O sistema foi pensado para que fosse algo simples e intuitivo, com cadastros de livros, autores, editoras, assuntos, idiomas e usuários, bem como controle de empréstimos e devoluções dos livros. </p>
